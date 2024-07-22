@@ -1,16 +1,16 @@
 ###
-GET http://localhost:4007/odata/v4/school/StudentMarks?$filter=student_id eq '1001'
+GET http://localhost:4004/odata/v4/school/StudentMarks?$filter=student_id eq '1001'
 
 ###
 GET http://localhost:4007/odata/v4/school/Students
 
 ###
-POST http://localhost:4007/odata/v4/school/Students
+POST http://localhost:4004/odata/v4/school/Students
 Content-Type: application/json
 
 {
-    "student_id":"2001",
-    "student_name":"Kumar"
+    "student_id":"54654",
+    "student_name":"Vetri"
 }
 
 ###
