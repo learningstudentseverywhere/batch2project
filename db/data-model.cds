@@ -17,3 +17,8 @@ entity StudentFees{
     key student_id : String;
         fees_paid : Boolean;
 }
+
+entity Logs{
+    key student_id : String;
+        message : String;
+}

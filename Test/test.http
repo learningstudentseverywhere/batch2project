@@ -9,7 +9,7 @@ POST http://localhost:4004/odata/v4/school/Students
 Content-Type: application/json
 
 {
-    "student_id":"54654",
+    "student_id":"1004",
     "student_name":"Vetri"
 }
 
