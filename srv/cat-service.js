@@ -36,6 +36,30 @@ module.exports = cds.service.impl(
           console.log(finalResult)
     });
 
+
+    this.before('CREATE','EmployeeAttendance',async req =>{
+          let employee_id = req.data.employee_id;
+          let employee_has_access = await SELECT.from('batch2Project_EmployeeAccess').where({employee_id:employee_id});
+          employee_has_access = employee_has_access[0].access_present;
+          if(!employee_has_access){
+              req.reject({
+                code:'500',
+                message : "Access Denied, Please contact Administrator"
+              });
+          }
+    });
+
+
+    this.after('CREATE','EmployeeAttendance',async req=>{
+      let employee_id = req.employee_id;
+      let payloadForInsert = {
+         employee_id:employee_id,
+         date:new Date().toISOString().split('T')[0]
+      }
+      await INSERT.into('batch2Project_EveryDayLunch').entries(payloadForInsert)
+        console.log("Entered After");
+    });
+
         
   
   }

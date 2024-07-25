@@ -22,3 +22,26 @@ entity Logs{
     key student_id : String;
         message : String;
 }
+
+
+entity Employee{
+    key employee_id  : String(10);
+}
+
+
+entity EmployeeAccess{
+    key employee_id : String(10);
+    access_present : Boolean;
+}
+
+entity EmployeeAttendance {
+    key employee_id : String(10);
+    key todaysdate : Date;                       //yyyy-mm-dd
+}
+
+
+entity EveryDayLunch{
+    key employee_id : String(10);
+    key date : Date;
+}
+
