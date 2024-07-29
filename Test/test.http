@@ -1,5 +1,12 @@
 ###
+GET http://localhost:4004/odata/v4/school/Students?$filter=student_id eq '1001'
+
+
+###
 GET http://localhost:4004/odata/v4/school/StudentMarks?$filter=student_id eq '1001'
+
+###
+GET http://localhost:4004/odata/v4/school/StudentFees?$filter=student_id eq '1001'
 
 ###
 GET http://localhost:4007/odata/v4/school/Students
@@ -34,3 +41,8 @@ Content-Type: application/json
     "employee_id":"emp1001",
     "todaysdate":"2024-07-25"
 }
+
+
+
+###
+GET http://localhost:4004/odata/v4/school/CompleteStudentInfo(student_id='1001')

@@ -8,6 +8,7 @@ service school{
     entity StudentMarks as projection on dbTables.StudentMarks;
     entity StudentFees as projection on dbTables.StudentFees;
     entity Logs as projection on dbTables.Logs;
+    entity CompleteStudentInfo as projection on dbTables.CompleteStudentInfo;
 
 
     entity Employee as projection on dbTables.Employee;

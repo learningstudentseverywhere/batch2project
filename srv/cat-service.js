@@ -60,8 +60,30 @@ module.exports = cds.service.impl(
         console.log("Entered After");
     });
 
-        
-  
+
+    this.on('READ','CompleteStudentInfo',async req=> {
+      let student_idFromUser = req.params[0].student_id;
+      let StudentName = await SELECT.from('batch2Project_Students').where({student_id:student_idFromUser});
+      StudentName = StudentName[0].student_name
+
+      let StudentMarks = await SELECT.from('batch2Project_StudentMarks').where({student_id:student_idFromUser});
+
+      let StudentFees = await SELECT.from('batch2Project_StudentFees').where({student_id:student_idFromUser});
+          StudentFees = StudentFees[0].fees_paid
+
+      let response = {
+        student_id : student_idFromUser,         //5000
+        student_name : StudentName,
+        Marks : StudentMarks,
+        fees_paid : StudentFees
+      }
+
+      req.reply(response);
+
+     console.log("Entered on Handler");
+    });
+
+
   }
 
 

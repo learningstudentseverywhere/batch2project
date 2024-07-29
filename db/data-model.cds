@@ -45,3 +45,16 @@ entity EveryDayLunch{
     key date : Date;
 }
 
+type StudentMarkstype {
+        student_id : String(10);
+        subject : String;
+        Marks : Integer;
+}
+
+
+entity CompleteStudentInfo{
+    key student_id : String;         //5000
+        student_name : String;
+        Marks : Array of StudentMarkstype;
+        fees_paid : Boolean;
+}
