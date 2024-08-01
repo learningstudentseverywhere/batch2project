@@ -46,3 +46,24 @@ Content-Type: application/json
 
 ###
 GET http://localhost:4004/odata/v4/school/CompleteStudentInfo(student_id='1001')
+
+
+
+
+###
+POST http://localhost:4004/odata/v4/school/staff
+Content-Type : application/json
+
+
+{
+    "staff_name":"Vijay"
+}
+
+
+###
+PATCH http://localhost:4004/odata/v4/school/staff(ID=09630aae-5244-488c-9c37-12f7b80947a1)
+Content-Type: application/json
+
+{
+     "staff_name":"Jaya"
+}

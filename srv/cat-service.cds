@@ -15,4 +15,5 @@ service school{
     entity EmployeeAccess as projection on dbTables.EmployeeAccess;
     entity EmployeeAttendance as projection on dbTables.EmployeeAttendance;
     entity EveryDayLunch as projection on dbTables.EveryDayLunch;
+    entity staff as projection on dbTables.staff;
 }

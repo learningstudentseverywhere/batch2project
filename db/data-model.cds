@@ -1,9 +1,22 @@
 namespace batch2Project;
+using {cuid,managed} from '@sap/cds/common';
+
+//Aspect --Custom Aspect  
+aspect ParentNameAspect {
+   key parent_name : String(20);
+      parent_occupation : String(5);
+}
+
+
+//Standard Aspects -- Aspects provided by SAP
+
+
 
 //Table Creation
-entity Students{
+entity Students:ParentNameAspect{
     key student_id : String;         //5000
         student_name : String;
+        parent_id : String(10);
 }
 
 
@@ -13,9 +26,10 @@ entity StudentMarks{
         Marks : Integer;
 }
 
-entity StudentFees{
+entity StudentFees:ParentNameAspect{
     key student_id : String;
         fees_paid : Boolean;
+        parent_id : String(10);
 }
 
 entity Logs{
@@ -57,4 +71,10 @@ entity CompleteStudentInfo{
         student_name : String;
         Marks : Array of StudentMarkstype;
         fees_paid : Boolean;
+}
+
+
+entity staff:cuid,managed{
+
+    staff_name : String;
 }
