@@ -78,3 +78,21 @@ entity staff:cuid,managed{
 
     staff_name : String;
 }
+
+
+entity SalesOrderheader{
+    key order_id:String(10);
+        ordered_person_name : String;
+        // to_SalesOrderItem : Association to many SalesOrderItem on to_SalesOrderItem.order_id = $self.order_id;
+        to_SalesOrderItem : Composition of  many SalesOrderItem on to_SalesOrderItem.order_id = $self.order_id;
+
+}
+
+
+
+entity SalesOrderItem{
+    key order_id : String(10);
+    key order_item_id : String(10);
+        item_name : String(10);
+        to_OrderHeader : Association to  SalesOrderheader on to_OrderHeader.order_id = $self.order_id;
+}

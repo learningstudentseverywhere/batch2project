@@ -16,4 +16,9 @@ service school{
     entity EmployeeAttendance as projection on dbTables.EmployeeAttendance;
     entity EveryDayLunch as projection on dbTables.EveryDayLunch;
     entity staff as projection on dbTables.staff;
-}
+
+
+    entity SalesOrderheader as projection on dbTables.SalesOrderheader;
+    entity SalesOrderItem as projection on dbTables.SalesOrderItem
+    
+    }

@@ -61,9 +61,17 @@ Content-Type : application/json
 
 
 ###
-PATCH http://localhost:4004/odata/v4/school/staff(ID=09630aae-5244-488c-9c37-12f7b80947a1)
+PATCH http://localhost:4004/odata/v4/school/staff(ID=23f45d21-b904-4ac6-b70c-332dd1447512)
 Content-Type: application/json
 
 {
      "staff_name":"Jaya"
 }
+
+
+###
+DELETE http://localhost:4004/odata/v4/school/SalesOrderheader(order_id='1001')
+
+
+###
+DELETE http://localhost:4004/odata/v4/school/SalesOrderItem(order_id='1002',order_item_id='20')
