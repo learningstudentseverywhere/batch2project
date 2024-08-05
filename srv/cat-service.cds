@@ -19,6 +19,32 @@ service school{
 
 
     entity SalesOrderheader as projection on dbTables.SalesOrderheader;
-    entity SalesOrderItem as projection on dbTables.SalesOrderItem
-    
+    entity SalesOrderItem as projection on dbTables.SalesOrderItem;
+
+    type StudentStructure{
+         student_id : String;         //5000
+        student_name : String;
     }
+
+    type EmployeesStructure{
+         employee_id  : String(10);
+    }
+
+    type StaffStructure {
+         staff_name : String;
+    }
+
+    type FinalData {
+        SchoolData:Array of StudentStructure;
+        EmployeeData:Array of EmployeesStructure;
+        StaffData:Array of StaffStructure;
+    }
+
+    function GetAllData() returns FinalData;
+    
+}
+
+
+service College{
+    entity CollegeStudents as projection on dbTables.CollegeStudents;
+}

@@ -75,3 +75,7 @@ DELETE http://localhost:4004/odata/v4/school/SalesOrderheader(order_id='1001')
 
 ###
 DELETE http://localhost:4004/odata/v4/school/SalesOrderItem(order_id='1002',order_item_id='20')
+
+
+###
+GET http://localhost:4004/odata/v4/school/GetAllData()

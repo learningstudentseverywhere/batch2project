@@ -96,3 +96,7 @@ entity SalesOrderItem{
         item_name : String(10);
         to_OrderHeader : Association to  SalesOrderheader on to_OrderHeader.order_id = $self.order_id;
 }
+
+entity CollegeStudents{
+    key college_student_id : String;
+}
