@@ -79,3 +79,18 @@ DELETE http://localhost:4004/odata/v4/school/SalesOrderItem(order_id='1002',orde
 
 ###
 GET http://localhost:4004/odata/v4/school/GetAllData()
+
+
+
+###
+POST http://localhost:4004/odata/v4/school/GetAllDataviaAction
+Content-Type: application/json
+
+{
+    "Input":{
+        "student_id" : "1001",
+        "employee_id" : "1",
+        "staff_name" : "Sakthivel"
+    }
+    
+}

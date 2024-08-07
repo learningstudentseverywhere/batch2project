@@ -75,7 +75,7 @@ req.reply(response);
 console.log("Entered on Handler");
 });
 
-
+//Function
 that.on('GetAllData',async req=>{
   let finalResult = {
         SchoolData:[],
@@ -94,6 +94,26 @@ that.on('GetAllData',async req=>{
   return finalResult;
 console.log("Entered Function");
 });
+
+//Action
+that.on('GetAllDataviaAction',async req=>{
+  console.log('Entered Action');
+  let finalResult = {
+    SchoolData:[],
+    EmployeeData:[],
+    StaffData:[]
+}
+
+let SchoolDataValue = await SELECT.from('batch2Project_Students').columns("student_id","student_name");
+let EmployeeDataValue = await SELECT.from('batch2Project_Employee');
+let StaffDataValue = await SELECT.from('batch2Project_staff').columns("staff_name");
+
+finalResult.SchoolData = SchoolDataValue;
+finalResult.EmployeeData = EmployeeDataValue;
+finalResult.StaffData = StaffDataValue
+
+return finalResult;
+})
 }
 
 module.exports =schoolServiceHandler;

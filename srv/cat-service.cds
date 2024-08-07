@@ -41,7 +41,14 @@ service school{
     }
 
     function GetAllData() returns FinalData;
+
+    type FinalInput {
+        student_id : String;
+        employee_id : String(10);
+        staff_name : String(10);
+    }
     
+    action GetAllDataviaAction(Input:FinalInput) returns FinalData;
 }
 
 
