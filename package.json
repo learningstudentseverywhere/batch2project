@@ -22,7 +22,7 @@
   },
   "cds": {
     "requires": {
-      "db": "sql"
+      "db": "hana"
     }
   }
 }

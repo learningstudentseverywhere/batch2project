@@ -49,6 +49,15 @@ service school{
     }
     
     action GetAllDataviaAction(Input:FinalInput) returns FinalData;
+
+    entity ViewForStudentsandMarks as select
+        A.student_id,
+        A.student_name,
+        B.subject,
+        B.Marks
+    from Students as A
+    inner join StudentMarks as B 
+    on A.student_id = B.student_id;
 }
 
 
