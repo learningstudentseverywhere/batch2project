@@ -1,0 +1,20 @@
+<mvc:View controllerName="com.practice.batch2ui.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content >
+    <VBox>
+    <HBox class="sapUiMediumMarginBegin sapUiMediumMarginTop sapUiMediumMarginBottom">
+    <Label id="inputLabel1" text="Enter Student Id" class="sapUiMediumMarginEnd"/>
+    <Input id="inputValue1" value="" />
+    </HBox>
+    <Button id="button1" text="Get Fees Details" press="GetStudentFeesData" class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom"/>
+
+    <HBox class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom">
+    <Label id="inputLabel2" text="Fees Details" class="sapUiMediumMarginEnd"/>
+    <Input id="inputValue2" value="" editable="false"/>
+     </HBox>
+    </VBox>
+        </content>
+    </Page>
+</mvc:View>

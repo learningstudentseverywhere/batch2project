@@ -5,10 +5,9 @@
 sap.ui.define([
         "sap/ui/core/UIComponent",
         "sap/ui/Device",
-        "com/practice/batch2ui/model/models",
-        "sap/ui/model/json/JSONModel"
+        "com/practice/batch2ui/model/models"
     ],
-    function (UIComponent, Device, models,JSONModel) {
+    function (UIComponent, Device, models) {
         "use strict";
 
         return UIComponent.extend("com.practice.batch2ui.Component", {
@@ -30,17 +29,6 @@ sap.ui.define([
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
-
-                //Setting the data for the model
-                let studentPostData = {
-                    "studentId":"",
-                    "studentName":"",
-                    "parentName":"",
-                    "updateStudentId":"",
-                    "updateStudentName":""
-                }
-
-                this.setModel(new JSONModel(studentPostData),"localStudentModel");
             }
         });
     }

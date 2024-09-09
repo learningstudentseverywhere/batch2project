@@ -5,7 +5,7 @@ that.before('CREATE','Students',async req => {
 
     let HasStudentPaidTheFees = await SELECT.from('batch2Project_StudentFees').where({student_id:student_idFromUser});
 
-    if(HasStudentPaidTheFees.length>0 && HasStudentPaidTheFees[0].fees_paid==1){
+    if(HasStudentPaidTheFees.length>0 && HasStudentPaidTheFees[0].FEES_PAID==1){
          
     }
     else{
