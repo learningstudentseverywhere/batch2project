@@ -1,20 +1,163 @@
-<mvc:View controllerName="com.practice.batch2ui.controller.Home"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content >
-    <VBox>
-    <HBox class="sapUiMediumMarginBegin sapUiMediumMarginTop sapUiMediumMarginBottom">
-    <Label id="inputLabel1" text="Enter Student Id" class="sapUiMediumMarginEnd"/>
-    <Input id="inputValue1" value="" />
-    </HBox>
-    <Button id="button1" text="Get Fees Details" press="GetStudentFeesData" class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom"/>
+<mvc:View
+  controllerName="com.practice.batch2ui.controller.Home"
+  xmlns:mvc="sap.ui.core.mvc"
+  displayBlock="true"
+  xmlns="sap.m"
+>
+  <Page
+    id="page"
+    title="{i18n>title}"
+  >
+    <content>
+      <IconTabBar
+        id="idIconTabBarInlineMode"
+        headerMode="Inline"
+        expanded="{device>/isNoPhone}"
+        class="sapUiResponsiveContentPadding"
+      >
+        <items>
+          <IconTabFilter
+            text="Get Student Data"
+            key="info"
+          >
+            <VBox>
+              <HBox
+                class="sapUiMediumMarginBegin sapUiMediumMarginTop sapUiMediumMarginBottom"
+              >
+                <Label
+                  id="inputLabel1"
+                  text="Enter Student Id"
+                  class="sapUiMediumMarginEnd"
+                />
+                <Input
+                  id="inputValue1"
+                  value=""
+                />
+              </HBox>
+              <Button
+                id="button1"
+                text="Get Fees Details"
+                press="GetStudentFeesData"
+                class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom"
+              />
 
-    <HBox class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom">
-    <Label id="inputLabel2" text="Fees Details" class="sapUiMediumMarginEnd"/>
-    <Input id="inputValue2" value="" editable="false"/>
-     </HBox>
-    </VBox>
-        </content>
-    </Page>
+              <HBox
+                class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom"
+              >
+                <Label
+                  id="inputLabel2"
+                  text="Fees Details"
+                  class="sapUiMediumMarginEnd"
+                />
+                <Input
+                  id="inputValue2"
+                  value=""
+                  editable="false"
+                />
+              </HBox>
+            </VBox>
+          </IconTabFilter>
+          <IconTabFilter
+            text="Create Student"
+            key="attachments"
+          >
+            <VBox>
+              <HBox
+                class="sapUiMediumMarginBegin sapUiMediumMarginTop sapUiMediumMarginBottom"
+              >
+                <Label
+                  id="inputLabel3"
+                  text="Enter Student Id"
+                  class="sapUiMediumMarginEnd"
+                />
+                <Input
+                  id="inputValue3"
+                  value="{localStudentModel>/studentId}"
+                />
+              </HBox>
+
+              <HBox
+                class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom"
+              >
+                <Label
+                  id="inputLabel4"
+                  text="Student Name"
+                  class="sapUiMediumMarginEnd"
+                />
+                <Input
+                  id="inputValue4"
+                  value="{localStudentModel>/studentName}"
+                />
+              </HBox>
+
+              <HBox
+                class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom"
+              >
+                <Label
+                  id="inputLabel5"
+                  text="Parent Name"
+                  class="sapUiMediumMarginEnd"
+                />
+                <Input
+                  id="inputValue5"
+                  value="{localStudentModel>/parentName}"
+                />
+              </HBox>
+              <Button
+                id="button2"
+                text="Create Student"
+                press="CreateStudent"
+                class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom"
+              />
+            </VBox>
+          </IconTabFilter>
+          <IconTabFilter
+            text="Update Student Name"
+            key="notes"
+          >
+            <HBox
+              class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom"
+            >
+              <Label
+                id="inputLabel6"
+                text="Student Id"
+                class="sapUiMediumMarginEnd"
+              />
+              <Input
+                id="inputValue6"
+                value="{localStudentModel>/updateStudentId}"
+              />
+            </HBox>
+
+            <HBox
+              class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom"
+            >
+              <Label
+                id="inputLabel7"
+                text="Student Name"
+                class="sapUiMediumMarginEnd"
+              />
+              <Input
+                id="inputValue7"
+                value="{localStudentModel>/updateStudentName}"
+              />
+            </HBox>
+            <Button
+              id="button3"
+              text="Update Student Name"
+              press="updateStudent"
+              class="sapUiMediumMarginBegin sapUiTinyMarginTop sapUiMediumMarginBottom"
+            />
+          </IconTabFilter>
+          <IconTabFilter
+            text="People"
+            key="people"
+            count="34"
+          >
+            <Text text="People content goes here ..." />
+          </IconTabFilter>
+        </items>
+      </IconTabBar>
+    </content>
+  </Page>
 </mvc:View>

@@ -9,7 +9,7 @@ service school{
     entity StudentFees as projection on dbTables.StudentFees;
     entity Logs as projection on dbTables.Logs;
     entity CompleteStudentInfo as projection on dbTables.CompleteStudentInfo;
-
+    entity studentsBackup as projection on dbTables.studentsBackup;
 
     entity Employee as projection on dbTables.Employee;
     entity EmployeeAccess as projection on dbTables.EmployeeAccess;

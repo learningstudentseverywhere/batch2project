@@ -33,6 +33,73 @@ function (Controller) {
             })
 
 
+        },
+        CreateStudent : function(){
+            //Get the details of new student from the UI
+            let oModel = this.getView().getModel('localStudentModel');
+            let studentid = oModel.getProperty("/studentId");
+            let studentName = oModel.getProperty("/studentName");
+            let parentName = oModel.getProperty("/parentName");
+
+
+            //Ajax call for creating
+            //Creating the URL
+            let studentCreateurl = "/odata/v4/school/Students"
+
+
+            //Payload
+            let payload = {
+                student_id:studentid,
+                student_name : studentName,
+                parent_id:parentName
+
+            }
+
+            //Ajax call
+            $.ajax({
+                url:studentCreateurl,
+                contentType:"application/json",
+                type:"POST",
+                data:JSON.stringify(payload),
+                dataType:"json",
+                success:function(oResult){
+                    console.log("Success");
+                },
+                error:function(oError){
+                    console.log('Error');
+                }
+            })
+
+            console.log("End")
+        }, 
+        updateStudent:function(){
+            //Fetch values from UI
+            let oModel = this.getView().getModel('localStudentModel');
+            let studentid = oModel.getProperty("/updateStudentId");
+            let studentName = oModel.getProperty("/updateStudentName");
+           
+            //URL
+            let updateURL= `/odata/v4/school/Students(student_id='${studentid}')`;
+
+            //Payload
+            let payload = {
+                student_name : studentName
+            }
+
+            //Ajax call
+            $.ajax({
+                url:updateURL,
+                contentType:'application/json',
+                type:"PATCH",
+                data:JSON.stringify(payload),
+                dataType:"json",
+                success:function(oData){
+                    console.log(oData);
+                },
+                error:function(oError){
+                    console.log(oError);
+                }
+            })
         }
     });
 });

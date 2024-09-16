@@ -101,3 +101,9 @@ entity SalesOrderItem{
 entity CollegeStudents{
     key college_student_id : String;
 }
+
+entity studentsBackup{
+     key student_id : String;         //5000
+        student_name : String;
+        parent_id : String(10);
+}
