@@ -1,7 +1,8 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "sap/ui/core/mvc/Controller",
+    "sap/m/MessageBox"
 ],
-function (Controller) {
+function (Controller,MessageBox) {
     "use strict";
 
     return Controller.extend("com.practice.batch2ui.controller.Home", {
@@ -106,12 +107,11 @@ function (Controller) {
              let oModel = this.getView().getModel('localStudentModel');
              let studentid = oModel.getProperty("/deleteStudentId");
 
-             
                //URL
                let deleteURL= `/odata/v4/school/Students(student_id='${studentid}')`;
 
 
-                  //Ajax call
+            //Ajax call
             $.ajax({
                 url:deleteURL,
                 contentType:'application/json',
@@ -171,7 +171,76 @@ function (Controller) {
                 }
             })
             });
-        }
+        },
+        schedulejobbackup : async function(){
+            //var userInfo = sap.ushell.Container.getService("UserInfo");
+            var today = JSON.stringify(new Date());
+            let jobId = await this.getJobId()
+            //let jobId = "2121705"
+            var url_render = $.sap.getModulePath("com.practice.batch2ui") + "/scheduler/jobs/" + jobId + "/schedules"; 
+             var newData = {
+                data: {},
+                description: "Job scheduled by " + "Sakthivel S" + " on " + today,
+                active: true,
+                type: "one-time",
+                time: "now"
+            };
+
+
+            $.ajax({
+                url: url_render,
+                type: 'POST',
+                data: JSON.stringify(newData),
+                contentType: "application/json",
+                headers:{
+                    "Authorization":"Basic c2Jzc19xbmUwaHNwN2NlbHB3NGloaGt4bmszc3o2b3o3ZGRnaXQvaGg4aGUyenNpazdmZDRvamkvaGZxdHF0Zmt3OGV0bjdjPTphYV8rWkFUVUk2UDN6Mk5vU0VHV01DeFFROXl3Q0U9"
+                  },
+                success: function (data) {
+                    sap.ui.core.BusyIndicator.hide();
+                    MessageBox.success("Job Schedule id: " + data.scheduleId + " was created successfully");
+                },
+                error: function (e) {
+                    sap.ui.core.BusyIndicator.hide();
+                    MessageBox.error("error: " + e);
+                }
+            });
+        },
+        getJobId: async function () {
+
+            return new Promise((resolve, reject) => {
+
+                var url_render = $.sap.getModulePath("com.practice.batch2ui") + "/scheduler/jobs?name=Student Backup Job";
+
+                $.ajax({
+
+                    url: url_render,
+
+                    type: 'GET',
+
+                    // data: JSON.stringify(newData),
+
+                    contentType: "application/json",
+
+                    success: function (data) {
+
+                        resolve(data);
+
+                    },
+
+                    error: function (e) {
+
+                        sap.ui.core.BusyIndicator.hide();
+
+                        MessageBox.error("error: " + e);
+
+                    }
+
+                });
+
+            });
+
+        },
+
 
     });
 });

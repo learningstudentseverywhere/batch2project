@@ -37,7 +37,9 @@ sap.ui.define([
                     "studentName":"",
                     "parentName":"",
                     "updateStudentId":"",
-                    "updateStudentName":""
+                    "updateStudentName":"",
+                    "deleteStudentId":"",
+                    "allStudentData":[]
                 }
 
                 this.setModel(new JSONModel(studentPostData),"localStudentModel");
