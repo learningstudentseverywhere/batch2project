@@ -18,6 +18,7 @@ entity Students{
     key student_id : String;         //5000
         student_name : String;
         parent_id : String(10);
+        to_StudentMarks : Association to many StudentMarks on to_StudentMarks.student_id = $self.student_id;
 }
 
 

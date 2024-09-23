@@ -61,9 +61,23 @@ modules:
       - compracticebatch2ui.zip
       name: compracticebatch2ui
       target-path: resources/
+    - artifacts:
+      - combatch2batch2fioele.zip
+      name: combatch2batch2fioele
+      target-path: resources/
 - name: compracticebatch2ui
   type: html5
   path: app/batch2ui
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: combatch2batch2fioele
+  type: html5
+  path: app/batch2fioele
   build-parameters:
     build-result: dist
     builder: custom
@@ -105,11 +119,20 @@ resources:
             ProxyType: Internet
             Type: HTTP
             URL: https://ui5.sap.com
+          - Authentication: NoAuthentication
+            HTML5.DynamicDestination: true
+            HTML5.ForwardAuthToken: true
+            Name: batch2project-srv-api
+            ProxyType: Internet
+            Type: HTTP
+            URL: ~{srv-api/srv-url}
           existing_destinations_policy: update
       version: 1.0.0
     service: destination
     service-name: batch2project-destination-service
     service-plan: lite
+  requires:
+  - name: srv-api
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
