@@ -9,8 +9,7 @@ annotate service.Students with {
             CollectionPath : 'Students',
             Parameters:[
                 {
-                    $Type:'Common.ValueListParameterInOut',
-                    LocalDataProperty:student_id,
+                    $Type:'Common.ValueListParameterDisplayOnly',
                     ValueListProperty:'student_id'
                 },
                  {
