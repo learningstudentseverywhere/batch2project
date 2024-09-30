@@ -8,3 +8,6 @@ using from './batch2fioele/annotations';
 
 
 using from '../srv/annotations/Labels/labelAnnotations';
+
+
+using from '../srv/annotations/ValueHelp/valuehelpannotation';
