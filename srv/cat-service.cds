@@ -4,7 +4,9 @@ using {batch2Project as dbTables} from '../db/data-model';
 //       ../ --> Search outside the folder
 
 service school{
-    entity Students as projection on dbTables.Students;
+    entity Students as projection on dbTables.Students  actions{
+        action IncreasenoofdaysbyTen() returns Students;
+    };
     entity StudentMarks as projection on dbTables.StudentMarks;
     entity StudentFees as projection on dbTables.StudentFees;
     entity Logs as projection on dbTables.Logs;

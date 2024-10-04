@@ -113,7 +113,29 @@ finalResult.EmployeeData = EmployeeDataValue;
 finalResult.StaffData = StaffDataValue
 
 return finalResult;
-})
+});
+
+that.on('IncreasenoofdaysbyTen',async req=>{
+  
+  //Get the table to be fetched
+   let tableName = req.target;
+
+   //Get the student data which is selected by user to be modified 
+   let studentData = await SELECT.from(tableName).where(req.query.SELECT.from.ref[0].where);
+ 
+   //Getting the student id and draft type
+   const [{student_id,IsActiveEntity}] = req.params;
+
+   //Changing the value of no of days
+   studentData[0].no_of_days_Present = studentData[0].no_of_days_Present + 10;
+
+   //Updating the db
+   await UPDATE.entity(tableName).data(studentData[0]).where({student_id:student_id});
+
+   //Refershing the UI
+   return that.read(tableName,{student_id,IsActiveEntity});
+  
+});
 }
 
 module.exports =schoolServiceHandler;

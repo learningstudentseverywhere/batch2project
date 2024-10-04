@@ -16,6 +16,15 @@ LineItem  : [
     {
        $Type:'UI.DataField',
         Value:student_name
+    },
+    {
+       $Type:'UI.DataField',
+        Value:no_of_days_Present
+    },
+    {
+        $Type:'UI.DataFieldForAction',
+        Action:'service.IncreasenoofdaysbyTen',
+        Label:'Increase no of Students by 10'
     }
 ],
 HeaderInfo  : {
