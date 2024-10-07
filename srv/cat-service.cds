@@ -5,7 +5,11 @@ using {batch2Project as dbTables} from '../db/data-model';
 
 service school{
     entity Students as projection on dbTables.Students  actions{
+        @Common.IsActionCritical:true
         action IncreasenoofdaysbyTen() returns Students;
+
+        
+        action IncreasebyCustomValue(inputDays:Integer @mandatory) returns Students;
     };
     entity StudentMarks as projection on dbTables.StudentMarks;
     entity StudentFees as projection on dbTables.StudentFees;
@@ -22,6 +26,7 @@ service school{
 
     entity SalesOrderheader as projection on dbTables.SalesOrderheader;
     entity SalesOrderItem as projection on dbTables.SalesOrderItem;
+
 
     type StudentStructure{
          student_id : String;         //5000

@@ -25,6 +25,11 @@ LineItem  : [
         $Type:'UI.DataFieldForAction',
         Action:'service.IncreasenoofdaysbyTen',
         Label:'Increase no of Students by 10'
+    },
+     {
+        $Type:'UI.DataFieldForAction',
+        Action:'school.IncreasebyCustomValue',
+        Label:'Increase by Custom Value'
     }
 ],
 HeaderInfo  : {

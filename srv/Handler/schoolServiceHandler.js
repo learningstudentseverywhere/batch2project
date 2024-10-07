@@ -92,7 +92,7 @@ that.on('GetAllData',async req=>{
   finalResult.StaffData = StaffDataValue
 
   return finalResult;
-console.log("Entered Function");
+
 });
 
 //Action
@@ -136,6 +136,27 @@ that.on('IncreasenoofdaysbyTen',async req=>{
    return that.read(tableName,{student_id,IsActiveEntity});
   
 });
+
+that.on('IncreasebyCustomValue',async req=>{
+  console.log("Entered Custom Action");
+  //Get the table to be fetched
+  let tableName = req.target;
+
+  //Get the student data which is selected by user to be modified 
+  let studentData = await SELECT.from(tableName).where(req.query.SELECT.from.ref[0].where);
+
+  //Getting the student id and draft type
+  const [{student_id,IsActiveEntity}] = req.params;
+
+  //Changing the value of no of days
+  studentData[0].no_of_days_Present = studentData[0].no_of_days_Present + req.data.inputDays;
+
+  //Updating the db
+  await UPDATE.entity(tableName).data(studentData[0]).where({student_id:student_id});
+
+  //Refershing the UI
+  return that.read(tableName,{student_id,IsActiveEntity});
+})
 }
 
 module.exports =schoolServiceHandler;
