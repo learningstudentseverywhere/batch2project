@@ -21,6 +21,10 @@ LineItem  : [
        $Type:'UI.DataField',
         Value:no_of_days_Present
     },
+      {
+       $Type:'UI.DataField',
+        Value:Grade
+    },
     {
         $Type:'UI.DataFieldForAction',
         Action:'service.IncreasenoofdaysbyTen',

@@ -19,6 +19,7 @@ entity Students{
         student_name : String;
         parent_id : String(10);
         no_of_days_Present : Integer;
+        Grade : String;
         to_StudentMarks : Association to many StudentMarks on to_StudentMarks.student_id = $self.student_id;
 }
 
