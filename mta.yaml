@@ -65,6 +65,10 @@ modules:
       - combatch2batch2fioele.zip
       name: combatch2batch2fioele
       target-path: resources/
+    - artifacts:
+      - combatch2uipresentationvariantbatch2.zip
+      name: combatch2uipresentationvariantbatch2
+      target-path: resources/
 - name: compracticebatch2ui
   type: html5
   path: app/batch2ui
@@ -78,6 +82,16 @@ modules:
 - name: combatch2batch2fioele
   type: html5
   path: app/batch2fioele
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+- name: combatch2uipresentationvariantbatch2
+  type: html5
+  path: app/presentationvariant_batch2
   build-parameters:
     build-result: dist
     builder: custom

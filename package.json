@@ -28,7 +28,8 @@
     "undeploy": "cf undeploy batch2project --delete-services --delete-service-keys --delete-service-brokers",
     "build": "rimraf resources mta_archives && mbt build --mtar archive",
     "deploy": "cf deploy mta_archives/archive.mtar --retries 1",
-    "watch-batch2fioele": "cds watch --open batch2fioele/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-batch2fioele": "cds watch --open batch2fioele/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-presentationvariant_batch2": "cds watch --open presentationvariant_batch2/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -39,6 +40,7 @@
     }
   },
   "sapux": [
-    "app/batch2fioele"
+    "app/batch2fioele",
+    "app/presentationvariant_batch2"
   ]
 }
